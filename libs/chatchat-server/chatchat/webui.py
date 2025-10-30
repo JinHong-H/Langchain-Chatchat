@@ -8,6 +8,7 @@ from chatchat.server.utils import api_address
 from chatchat.webui_pages.dialogue.dialogue import  dialogue_page
 from chatchat.webui_pages.kb_chat import kb_chat
 from chatchat.webui_pages.knowledge_base.knowledge_base import knowledge_base_page
+from chatchat.webui_pages.knowledge_search.knowledge_search import knowledge_search_page
 from chatchat.webui_pages.utils import *
 
 api = ApiRequest(base_url=api_address())
@@ -58,16 +59,18 @@ if __name__ == "__main__":
                 sac.MenuItem("多功能对话", icon="chat"),
                 sac.MenuItem("RAG 对话", icon="database"),
                 sac.MenuItem("知识库管理", icon="hdd-stack"),
+                sac.MenuItem("检索知识库", icon="search"),
             ],
             key="selected_page",
             open_index=0,
         )
-
         sac.divider()
 
     if selected_page == "知识库管理":
         knowledge_base_page(api=api, is_lite=is_lite)
     elif selected_page == "RAG 对话":
         kb_chat(api=api)
+    elif selected_page == "检索知识库":
+        knowledge_search_page(api=api)
     else:
         dialogue_page(api=api, is_lite=is_lite)

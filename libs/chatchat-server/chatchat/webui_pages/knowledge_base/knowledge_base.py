@@ -208,7 +208,7 @@ def knowledge_base_page(api: ApiRequest, is_lite: bool = None):
         st.divider()
 
         # 知识库详情
-        # st.info("请选择文件，点击按钮进行操作。")
+        st.info("请选择文件，点击按钮进行操作。")
         doc_details = pd.DataFrame(get_kb_file_details(kb))
         selected_rows = []
         if not len(doc_details):
