@@ -10,6 +10,7 @@ from chatchat.webui_pages.kb_chat import kb_chat
 from chatchat.webui_pages.knowledge_base.knowledge_base import knowledge_base_page
 from chatchat.webui_pages.knowledge_search.knowledge_search import knowledge_search_page
 from chatchat.webui_pages.utils import *
+from chatchat.webui_pages.model_finetuning.model_finetuning import model_finetuning_page
 
 api = ApiRequest(base_url=api_address())
 
@@ -60,6 +61,7 @@ if __name__ == "__main__":
                 sac.MenuItem("RAG 对话", icon="database"),
                 sac.MenuItem("知识库管理", icon="hdd-stack"),
                 sac.MenuItem("检索知识库", icon="search"),
+                sac.MenuItem("P-Tuning v2 微调", icon="wrench"),
             ],
             key="selected_page",
             open_index=0,
@@ -72,5 +74,7 @@ if __name__ == "__main__":
         kb_chat(api=api)
     elif selected_page == "检索知识库":
         knowledge_search_page(api=api)
+    elif selected_page == "P-Tuning v2 微调":
+        model_finetuning_page(api=api)
     else:
         dialogue_page(api=api, is_lite=is_lite)

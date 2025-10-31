@@ -105,7 +105,7 @@ def kb_chat(api: ApiRequest):
             history_len = st.number_input("历史对话轮数：", 0, 20, key="history_len")
             kb_top_k = st.number_input("匹配知识条数：", 1, 20, key="kb_top_k")
             ## Bge 模型会超过1
-            score_threshold = st.slider("知识匹配分数阈值：", 0.0, 2.0, step=0.01, key="score_threshold")
+            score_threshold = st.slider("知识匹配分数阈值：", 0.0, 1.0, step=0.01, key="score_threshold")
             return_direct = st.checkbox("仅返回检索结果", key="return_direct")
 
 
